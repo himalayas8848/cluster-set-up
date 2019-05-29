@@ -1,0 +1,37 @@
+--Download JDK and config env
+--Download spark
+$wget -c https://spark current version.tgz in spark download page
+--In /home/dwang/ make a folder of spark
+$tar -zxvf spark-2.4.3-bin-hadoop2.7.tgz -C spark/
+Then we install the Apache Spark stand alone.
+
+--Set Spark Home
+vi .bash_profile give the SPARK_HOME and add to PATH
+CTRL+D to exit spark
+
+--Install Jupyter notebook
+Using Anaconda Linux download.
+Install jupyter kernerl Apache Toree version. But version 0.1 will not work, you have to get the dev built.
+$pip install toree
+$jupyter toree install --spark_home=$SPARK_HOME --interpreters=Scala,PySpark,SQL --user
+# --user is to restrict install to current user, otherwise it might have permisson issue.
+$jupyter notebook --no-browser
+
+If the vm is in cloud, there are two more steps needed.
+1. Upgrade external IP to a static IP
+- Go to cloud VM, VPC netowrk. Click on External IP Address. Change Type to Static and give a name.
+
+2. Create firewall rule to open TCP port 8888.
+-Firewall rules: Give a name; give a Target tags name; Source IP ranges--0.0.0.0/0; Protocls and ports--Check Specified protocal and ports "tcp:8888".
+Create.
+
+3. Apply to Computer Engine - VM instance. Shut down the VM. Then Edit VM after VM shut down. Add Firewall name into Network tags. Then start VM.
+
+4. Open jupyter with "jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser
+Paste the command line url into a browser and change ip to cloud VM external static ip address.
+
+
+
+
+
+
