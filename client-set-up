@@ -1,4 +1,7 @@
 --Download JDK and config env
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.rpm
+sudo yum localinstall jdk-8u144-linux-64.rpm
+
 --Download spark
 $wget -c https://spark current version.tgz in spark download page
 --In /home/dwang/ make a folder of spark
@@ -29,9 +32,3 @@ Create.
 
 4. Open jupyter with "jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser
 Paste the command line url into a browser and change ip to cloud VM external static ip address.
-
-
-
-
-
-
